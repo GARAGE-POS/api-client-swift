@@ -1,0 +1,10 @@
+# SubmitSampleInvoicesResponse
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**samples** | [SampleInvoiceInfo] | Sample invoices that were submitted. | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
