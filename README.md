@@ -142,6 +142,211 @@ do {
 }
 ```
 
+## Environment Management
+
+The package includes built-in environment switching to easily move between QA, Sandbox, and Live environments at runtime.
+
+### Available Environments
+
+| Environment | URL |
+|------------|-----|
+| Q1 | `https://api-qa1.karage.co` |
+| Q2 | `https://api-qa2.karage.co` |
+| Q3 | `https://api-qa3.karage.co` |
+| Q4 | `https://api-qa4.karage.co` |
+| Sandbox | `https://sandbox-api.karage.co` |
+| Live | `https://api.karage.co` |
+
+### Get Current Environment
+
+```swift
+// Get current environment
+let currentEnv = EnvironmentManager.shared.currentEnvironment
+print("Current: \(currentEnv.rawValue)") // e.g., "Q1", "Sandbox", "Live"
+
+// Get current server URL
+let serverURL = EnvironmentManager.shared.currentServerURL
+print("Server: \(serverURL)") // e.g., "https://api-qa1.karage.co"
+```
+
+### Switch Environments
+
+```swift
+// Switch to next environment (cycles through all)
+EnvironmentManager.shared.switchToNextEnvironment()
+
+// Switch to specific environment
+EnvironmentManager.shared.switchToEnvironment(.sandbox)
+EnvironmentManager.shared.switchToEnvironment(.live)
+
+// Switch by label string
+EnvironmentManager.shared.switchToEnvironment(label: "Q2")
+```
+
+### Listen for Environment Changes
+
+```swift
+// Register for notifications
+NotificationCenter.default.addObserver(
+    forName: .karageEnvironmentDidChange,
+    object: nil,
+    queue: .main
+) { notification in
+    if let newEnv = notification.userInfo?[KarageEnvironmentKey] as? Environment {
+        print("Environment changed to: \(newEnv.rawValue)")
+        // Reload your API client, logout user, etc.
+    }
+}
+```
+
+### SwiftUI Integration Example
+
+```swift
+import SwiftUI
+import KarageAPIClient
+
+struct EnvironmentSettingsView: View {
+    @State private var currentEnvironment = EnvironmentManager.shared.currentEnvironment
+    
+    var body: some View {
+        List {
+            Section("Current Environment") {
+                HStack {
+                    Text("Environment")
+                    Spacer()
+                    Text(currentEnvironment.rawValue)
+                        .foregroundStyle(.secondary)
+                }
+                
+                HStack {
+                    Text("Server URL")
+                    Spacer()
+                    Text(currentEnvironment.baseURL)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                }
+            }
+            
+            Section("Available Environments") {
+                ForEach(Environment.allCases, id: \.self) { env in
+                    Button {
+                        EnvironmentManager.shared.switchToEnvironment(env)
+                        currentEnvironment = env
+                        // Logout user to apply changes
+                        logoutUser()
+                    } label: {
+                        HStack {
+                            VStack(alignment: .leading) {
+                                Text(env.rawValue)
+                                    .foregroundStyle(.primary)
+                                Text(env.baseURL)
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                            Spacer()
+                            if env == currentEnvironment {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundStyle(.blue)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .navigationTitle("API Environment")
+    }
+}
+```
+
+### Sync with OAuth Configuration
+
+If you manage OAuth configuration separately in your app, sync it when environment changes:
+
+```swift
+import KarageAPIClient
+
+class AppEnvironmentManager {
+    
+    func switchEnvironment(to environment: Environment) {
+        // 1. Switch API environment
+        EnvironmentManager.shared.switchToEnvironment(environment)
+        
+        // 2. Update your OAuth config to match
+        updateOAuth2Config(environment: environment)
+        
+        // 3. Logout user to force re-authentication
+        logoutUser()
+    }
+    
+    private func updateOAuth2Config(environment: Environment) {
+        // Update your OAuth2Config.json issuer to match:
+        let issuer = environment.baseURL
+        
+        guard let configURL = getOAuthConfigURL() else { return }
+        guard let data = try? Data(contentsOf: configURL) else { return }
+        guard var json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
+        
+        json["issuer"] = issuer
+        
+        if let updatedData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) {
+            try? updatedData.write(to: configURL)
+            print("✅ OAuth config synced to \(environment.rawValue)")
+        }
+    }
+    
+    private func getOAuthConfigURL() -> URL? {
+        // Your OAuth config location logic
+        return nil
+    }
+}
+```
+
+### Environment Properties
+
+```swift
+let env = Environment.qa1
+
+// Get base URL
+print(env.baseURL) // "https://api-qa1.karage.co"
+
+// Check environment type
+print(env.isProduction) // false
+print(env.isQA) // true
+
+// Get next environment in cycle
+print(env.next) // .qa2
+```
+
+### Configuration File Management
+
+The package automatically manages the `openapi.json` configuration:
+
+1. **First Run**: Copies `openapi.json` from app bundle to Documents directory
+2. **Updates**: Modifies the Documents copy when switching environments  
+3. **Persistence**: Changes persist across app launches
+
+**Important**: Include `openapi.json` in your app's bundle resources.
+
+### Best Practices
+
+1. **Logout on Switch**: Always logout users when switching environments for clean auth state
+2. **Sync OAuth**: Keep OAuth issuer URL in sync with API environment
+3. **Visual Indicator**: Show current environment prominently in non-production builds
+4. **Production Safety**: Consider hiding QA environments in App Store builds:
+
+```swift
+var availableEnvironments: [Environment] {
+    #if DEBUG
+        return Environment.allCases  // All environments
+    #else
+        return [.sandbox, .live]  // Production-ready only
+    #endif
+}
+```
+
+
+
 ### Using Types
 
 All response and request types are under the `Components.Schemas` namespace:
