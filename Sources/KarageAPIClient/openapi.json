@@ -43822,7 +43822,6 @@
           "Cost",
           "Price",
           "IsInclusiveVAT",
-          "TaxValue",
           "IsInventoryItem",
           "IsOpenItem",
           "ItemType",
@@ -43921,11 +43920,6 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1.0
-          },
-          "TaxValue": {
-            "type": "number",
-            "format": "decimal",
             "example": 1.0
           },
           "PropertiesJSON": {
