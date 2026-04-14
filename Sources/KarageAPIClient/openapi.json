@@ -8342,6 +8342,101 @@
         ]
       }
     },
+    "/api/v1/product-transfer": {
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "summary": "Transfer categories and items from a source location to target locations",
+        "description": "Copies the specified categories and their items from the source account/location to the target account/locations. If IsOpenItem is true, all copied items will have IsOpenItem set to true. Before transferring, the endpoint checks if any items already exist in the target account by name or SKU. If duplicates are found, the transfer is rejected and no data is copied.",
+        "operationId": "CreateProductTransfer",
+        "parameters": [
+          {
+            "name": "X-Karage-Request-Id",
+            "in": "header",
+            "required": true,
+            "description": "Unique request identifier for tracing and debugging",
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          },
+          {
+            "name": "X-Account-ID",
+            "in": "header",
+            "required": true,
+            "description": "The account ID to operate under (Required)",
+            "schema": {
+              "title": "Integer",
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 1
+          },
+          {
+            "name": "X-Location-ID",
+            "in": "header",
+            "required": true,
+            "description": "The location ID to operate under (Required)",
+            "schema": {
+              "title": "Integer",
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "ProductTransferRequest",
+          "description": "The ProductTransferRequest parameter",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductTransferRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "201": {
+            "description": "Transfer completed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductTransferResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "409": {
+            "description": "Duplicate items already exist in the target account"
+          },
+          "404": {
+            "description": "Source categories or locations not found"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "OAuth2": [
+              "AccountManager",
+              "AccountsManager",
+              "SuperAdmin"
+            ]
+          }
+        ]
+      }
+    },
     "/api/v1/sessions/{SessionID}/close": {
       "patch": {
         "tags": [
@@ -18273,6 +18368,135 @@
         ]
       }
     },
+    "/api/v1/integrations/plate-reader": {
+      "post": {
+        "tags": [
+          "Integrations"
+        ],
+        "summary": "Read license plates from an image file",
+        "description": "Accepts an image file (multipart/form-data) and forwards it to Plate Recognizer Snapshot API. Region defaults to 'sa'.",
+        "operationId": "ReadPlateRecognizer",
+        "parameters": [
+          {
+            "name": "X-Karage-Request-Id",
+            "in": "header",
+            "required": true,
+            "description": "Unique request identifier for tracing and debugging",
+            "schema": {
+              "type": "string"
+            },
+            "example": "example"
+          },
+          {
+            "name": "X-Account-ID",
+            "in": "header",
+            "required": true,
+            "description": "The account ID to operate under (Required)",
+            "schema": {
+              "title": "Integer",
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 1
+          },
+          {
+            "name": "X-Location-ID",
+            "in": "header",
+            "required": true,
+            "description": "The location ID to operate under (Required)",
+            "schema": {
+              "title": "Integer",
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "ReadPlateRecognizerRequest",
+          "description": "The ReadPlateRecognizerRequest parameter",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReadPlateRecognizerRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "201": {
+            "description": "License plate read successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReadPlateRecognizerResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Upstream service returned a bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Upstream service rejected the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "422": {
+            "description": "No plate detected in the image.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream service is unavailable or returned an invalid response.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
     "/api/v1/integration-audit/logs": {
       "get": {
         "tags": [
@@ -25862,8 +26086,8 @@
           "Title",
           "Status",
           "Instance",
-          "TraceId",
-          "Errors"
+          "Errors",
+          "TraceID"
         ],
         "properties": {
           "Type": {
@@ -25887,11 +26111,6 @@
             "default": "/api/route",
             "example": "/api/v1/example"
           },
-          "TraceId": {
-            "type": "string",
-            "default": "0HMPNHL0JHL76:00000001",
-            "example": "0HMPNHL0JHL76:00000001"
-          },
           "Detail": {
             "type": "string",
             "nullable": true,
@@ -25902,6 +26121,11 @@
             "items": {
               "$ref": "#/components/schemas/ProblemDetails_Error"
             }
+          },
+          "TraceID": {
+            "type": "string",
+            "default": "0HMPNHL0JHL76:00000001",
+            "example": "0HMPNHL0JHL76:00000001"
           }
         }
       },
@@ -26514,7 +26738,8 @@
           60,
           61,
           62,
-          63
+          63,
+          64
         ],
         "x-enum-varnames": [
           "MakeCreated",
@@ -26580,7 +26805,8 @@
           "OAuth2ClientCreated",
           "OAuth2ClientUpdated",
           "OAuth2ClientDeleted",
-          "PurchaseInvoiceCreated"
+          "PurchaseInvoiceCreated",
+          "ProductTransferCompleted"
         ]
       },
       "StatusType": {
@@ -34778,7 +35004,6 @@
         ],
         "properties": {
           "JobOrder": {
-            "nullable": false,
             "$ref": "#/components/schemas/JobOrderSettings"
           },
           "HasCheckList": {
@@ -34818,11 +35043,9 @@
         ],
         "properties": {
           "OrderDiscount": {
-            "nullable": false,
             "$ref": "#/components/schemas/OrderDiscountSettings"
           },
           "ItemDiscount": {
-            "nullable": false,
             "$ref": "#/components/schemas/ItemDiscountSettings"
           }
         }
@@ -35699,14 +35922,11 @@
           "Quantity": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0.0,
-            "example": 10,
-            "exclusiveMinimum": true
+            "example": 10
           },
           "UnitPrice": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0.0,
             "example": 1.0
           },
           "DiscountAmount": {
@@ -35734,7 +35954,6 @@
           "GrandTotal": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0.0,
             "example": 1.0
           },
           "OrderDiscountAllocation": {
@@ -35745,7 +35964,6 @@
           "Subtotal": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0.0,
             "example": 1.0
           },
           "IsInclusiveVAT": {
@@ -35790,6 +36008,147 @@
             "items": {
               "$ref": "#/components/schemas/QuotationResponse"
             }
+          }
+        }
+      },
+      "ProductTransferResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "CategoriesTransferred",
+          "ItemsTransferred",
+          "Categories"
+        ],
+        "properties": {
+          "CategoriesTransferred": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "ItemsTransferred": {
+            "type": "integer",
+            "format": "int32",
+            "example": 1
+          },
+          "Categories": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductTransferCategoryResult"
+            }
+          }
+        }
+      },
+      "ProductTransferCategoryResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "SourceCategoryID",
+          "TargetCategoryID",
+          "Name",
+          "ItemsCount"
+        ],
+        "properties": {
+          "SourceCategoryID": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "TargetCategoryID": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1
+          },
+          "Name": {
+            "type": "string",
+            "example": "Example Name"
+          },
+          "ItemsCount": {
+            "type": "integer",
+            "format": "int32",
+            "example": 10
+          }
+        }
+      },
+      "ProductTransferRequest": {
+        "type": "object",
+        "example": {
+          "SourceAccountID": 1,
+          "SourceLocationID": 1,
+          "TargetAccountID": 2,
+          "TargetLocationIDs": [
+            2,
+            3
+          ],
+          "CategoryIDs": [
+            1,
+            2
+          ],
+          "IsOpenItem": false
+        },
+        "additionalProperties": false,
+        "required": [
+          "TargetLocationIDs",
+          "CategoryIDs",
+          "SourceAccountID",
+          "SourceLocationID",
+          "TargetAccountID",
+          "IsOpenItem"
+        ],
+        "properties": {
+          "SourceAccountID": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0.0,
+            "example": 1,
+            "exclusiveMinimum": true
+          },
+          "SourceLocationID": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0.0,
+            "example": 1,
+            "exclusiveMinimum": true
+          },
+          "TargetAccountID": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 0.0,
+            "example": 2,
+            "exclusiveMinimum": true
+          },
+          "TargetLocationIDs": {
+            "type": "array",
+            "minimum": 0.0,
+            "minLength": 1,
+            "nullable": false,
+            "example": [
+              2,
+              3
+            ],
+            "exclusiveMinimum": true,
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "CategoryIDs": {
+            "type": "array",
+            "minimum": 0.0,
+            "minLength": 1,
+            "nullable": false,
+            "example": [
+              1,
+              2
+            ],
+            "exclusiveMinimum": true,
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "IsOpenItem": {
+            "type": "boolean",
+            "example": true
           }
         }
       },
@@ -36400,14 +36759,11 @@
           "LocationID": {
             "type": "integer",
             "format": "int64",
-            "minLength": 1,
-            "nullable": false,
             "example": 1
           },
           "Price": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0.0,
             "example": 99.99
           }
         }
@@ -36432,16 +36788,12 @@
           "ItemID": {
             "type": "integer",
             "format": "int64",
-            "minLength": 1,
-            "nullable": false,
             "example": 100
           },
           "Quantity": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0.0,
-            "example": 10,
-            "exclusiveMinimum": true
+            "example": 10
           },
           "Discount": {
             "type": "number",
@@ -36451,7 +36803,6 @@
           "Cost": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0.0,
             "example": 49.99
           },
           "DiscountType": {
@@ -36462,7 +36813,6 @@
           "Price": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0.0,
             "example": 99.99
           }
         }
@@ -39645,14 +39995,11 @@
           "LocationID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0.0,
-            "example": 1,
-            "exclusiveMinimum": true
+            "example": 1
           },
           "Price": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0.0,
             "example": 99.99
           },
           "WarehouseStocks": {
@@ -40149,9 +40496,7 @@
           "ItemID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0.0,
-            "example": 100,
-            "exclusiveMinimum": true
+            "example": 100
           },
           "UnitID": {
             "type": "integer",
@@ -40473,14 +40818,11 @@
           "ItemID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0.0,
-            "example": 100,
-            "exclusiveMinimum": true
+            "example": 100
           },
           "PhysicalQuantity": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0.0,
             "example": 1.0
           },
           "ReasonType": {
@@ -40956,16 +41298,12 @@
           "ItemID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0.0,
-            "example": 100,
-            "exclusiveMinimum": true
+            "example": 100
           },
           "Quantity": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0.0,
-            "example": 10,
-            "exclusiveMinimum": true
+            "example": 10
           },
           "TaxRate": {
             "type": "number",
@@ -40994,13 +41332,11 @@
           "CostPerUnit": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0.0,
             "example": 1.0
           },
           "PricePerUnit": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0.0,
             "example": 1.0
           },
           "Total": {
@@ -41721,9 +42057,7 @@
           "ItemID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0.0,
-            "example": 100,
-            "exclusiveMinimum": true
+            "example": 100
           },
           "UnitID": {
             "type": "integer",
@@ -41734,9 +42068,7 @@
           "Quantity": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0.0,
-            "example": 10,
-            "exclusiveMinimum": true
+            "example": 10
           },
           "TaxRate": {
             "type": "number",
@@ -41759,20 +42091,16 @@
           "CostPerUnit": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0.0,
             "example": 1.0
           },
           "PricePerUnit": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0.0,
             "example": 1.0
           },
           "Condition": {
             "type": "integer",
             "format": "int32",
-            "maximum": 4.0,
-            "minimum": 1.0,
             "example": 1
           },
           "ConditionReason": {
@@ -41783,18 +42111,14 @@
           "ConditionAction": {
             "type": "integer",
             "format": "int32",
-            "maximum": 3.0,
-            "minimum": 1.0,
             "nullable": true,
             "example": 1
           },
           "QtyOrdered": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0.0,
             "nullable": true,
-            "example": 1.0,
-            "exclusiveMinimum": true
+            "example": 1.0
           },
           "Total": {
             "type": "number",
@@ -42370,16 +42694,12 @@
           "ItemID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0.0,
-            "example": 100,
-            "exclusiveMinimum": true
+            "example": 100
           },
           "Quantity": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0.0,
-            "example": 10,
-            "exclusiveMinimum": true
+            "example": 10
           },
           "UnitID": {
             "type": "integer",
@@ -42645,6 +42965,44 @@
             "minLength": 1,
             "nullable": false,
             "example": "Insufficient justification for the requested quantities"
+          }
+        }
+      },
+      "ReadPlateRecognizerResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "PlateNo"
+        ],
+        "properties": {
+          "PlateNo": {
+            "type": "string",
+            "example": "12345"
+          }
+        }
+      },
+      "ReadPlateRecognizerRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "Image",
+          "Regions"
+        ],
+        "properties": {
+          "Image": {
+            "type": "string",
+            "format": "binary",
+            "nullable": false,
+            "example": "example"
+          },
+          "Regions": {
+            "type": "array",
+            "maxLength": 20,
+            "minLength": 0,
+            "nullable": false,
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -43464,6 +43822,7 @@
           "Cost",
           "Price",
           "IsInclusiveVAT",
+          "TaxValue",
           "IsInventoryItem",
           "IsOpenItem",
           "ItemType",
@@ -43550,6 +43909,23 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
+            "example": 1.0
+          },
+          "TaxID": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true,
+            "example": 1
+          },
+          "TaxRate": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true,
+            "example": 1.0
+          },
+          "TaxValue": {
+            "type": "number",
+            "format": "decimal",
             "example": 1.0
           },
           "PropertiesJSON": {
@@ -44437,9 +44813,7 @@
             "type": "integer",
             "format": "int64",
             "default": 1,
-            "minimum": 0.0,
-            "example": 1,
-            "exclusiveMinimum": true
+            "example": 1
           },
           "InvoiceNo": {
             "type": "string",
@@ -44462,9 +44836,7 @@
             "type": "number",
             "format": "decimal",
             "default": 100.0,
-            "minimum": 0.0,
-            "example": 1.0,
-            "exclusiveMinimum": true
+            "example": 1.0
           },
           "PaymentReceivedDate": {
             "type": "string",
@@ -44476,9 +44848,7 @@
             "type": "number",
             "format": "decimal",
             "default": 50.0,
-            "minimum": 0.0,
-            "example": 1.0,
-            "exclusiveMinimum": true
+            "example": 1.0
           }
         }
       },
@@ -45323,7 +45693,7 @@
           "RegistrationNo": {
             "type": "string",
             "minLength": 1,
-            "pattern": "^([A-Z]{1,3}-?\\d{2,6}|\\d{3,6})$",
+            "pattern": "^([A-Z]{1,3}-?\\d{1,6}|\\d{3,6})$",
             "nullable": false,
             "example": "ABC-1234"
           },
@@ -46588,6 +46958,10 @@
     {
       "name": "IntegrationAudit",
       "description": "Integration audit logging for external API request/response tracking"
+    },
+    {
+      "name": "Integrations",
+      "description": "External integration operations and adapters"
     },
     {
       "name": "ItemTypes",
