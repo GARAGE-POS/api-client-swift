@@ -18571,7 +18571,7 @@
           "x-name": "ReadPlateRecognizerRequest",
           "description": "The ReadPlateRecognizerRequest parameter",
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
                 "$ref": "#/components/schemas/ReadPlateRecognizerRequest"
               }
