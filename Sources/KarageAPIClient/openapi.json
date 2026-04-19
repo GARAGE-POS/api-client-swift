@@ -18571,11 +18571,6 @@
           "x-name": "ReadPlateRecognizerRequest",
           "description": "The ReadPlateRecognizerRequest parameter",
           "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ReadPlateRecognizerRequest"
-              }
-            },
             "multipart/form-data": {
               "schema": {
                 "$ref": "#/components/schemas/ReadPlateRecognizerRequest"
@@ -26240,6 +26235,7 @@
       },
       "ProblemDetails": {
         "type": "object",
+        "description": "RFC7807 compatible problem details/ error response class. this can be used by configuring startup like so:\napp.UseFastEndpoints(c => c.Errors.UseProblemDetails())",
         "additionalProperties": false,
         "required": [
           "Type",
@@ -26273,6 +26269,7 @@
           },
           "Detail": {
             "type": "string",
+            "description": "the details of the error",
             "nullable": true,
             "example": "Additional error details"
           },
@@ -26291,6 +26288,7 @@
       },
       "ProblemDetails_Error": {
         "type": "object",
+        "description": "the error details object",
         "additionalProperties": false,
         "required": [
           "Name",
@@ -26299,21 +26297,25 @@
         "properties": {
           "Name": {
             "type": "string",
+            "description": "the name of the error or property of the dto that caused the error",
             "default": "Error or field name",
             "example": "fieldName"
           },
           "Reason": {
             "type": "string",
+            "description": "the reason for the error",
             "default": "Error reason",
             "example": "The field is required."
           },
           "Code": {
             "type": "string",
+            "description": "the code of the error",
             "nullable": true,
             "example": "NotEmpty"
           },
           "Severity": {
             "type": "string",
+            "description": "the severity of the error",
             "nullable": true,
             "example": "Error"
           }
@@ -47145,8 +47147,8 @@
         "type": "oauth2",
         "flows": {
           "authorizationCode": {
-            "authorizationUrl": "https://api-qa1.karage.co/oauth/authorize",
-            "tokenUrl": "https://api-qa1.karage.co/oauth/token",
+            "authorizationUrl": "https://api-qa4.karage.co/oauth/authorize",
+            "tokenUrl": "https://api-qa4.karage.co/oauth/token",
             "scopes": {
               "email": "Access to your email",
               "profile": "Access to your profile",
