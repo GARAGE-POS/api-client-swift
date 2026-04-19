@@ -17,7 +17,7 @@
   },
   "servers": [
     {
-      "url": "https://api-qa4.karage.co"
+      "url": "https://api-qa1.karage.co"
     }
   ],
   "paths": {
@@ -92,14 +92,14 @@
           "400": {
             "description": "Invalid request or compliance certificate already exists"
           },
+          "500": {
+            "description": "Internal server error"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "500": {
-            "description": "Internal server error"
           }
         },
         "security": [
@@ -360,14 +360,14 @@
               }
             }
           },
+          "404": {
+            "description": "Sample invoice not found for the specified type and document type"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Sample invoice not found for the specified type and document type"
           }
         },
         "security": [
@@ -534,14 +534,14 @@
               }
             }
           },
+          "404": {
+            "description": "Terminal not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Terminal not found"
           }
         },
         "security": [
@@ -622,12 +622,6 @@
           "400": {
             "description": "Invalid request"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "404": {
             "description": "Terminal not found"
           },
@@ -639,6 +633,12 @@
           },
           "502": {
             "description": "ZATCA API upstream error"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         },
         "security": [
@@ -817,12 +817,6 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "404": {
             "description": "Order not found"
           },
@@ -845,6 +839,12 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         },
         "security": [
@@ -925,14 +925,14 @@
           "400": {
             "description": "Invalid request or compliance issues"
           },
+          "500": {
+            "description": "Internal server error"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "500": {
-            "description": "Internal server error"
           }
         },
         "security": [
@@ -1458,6 +1458,9 @@
               }
             }
           },
+          "404": {
+            "description": "Webhook not found"
+          },
           "400": {
             "description": "Webhook is not active"
           },
@@ -1466,9 +1469,6 @@
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Webhook not found"
           }
         },
         "security": [
@@ -1980,11 +1980,11 @@
               }
             }
           },
-          "400": {
-            "description": "Account does not exist"
-          },
           "401": {
             "description": "Unauthorized"
+          },
+          "400": {
+            "description": "Account does not exist"
           },
           "403": {
             "description": "Forbidden"
@@ -2164,11 +2164,11 @@
           "400": {
             "description": "Validation error (e.g., duplicate email, weak password)"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "403": {
             "description": "Forbidden - insufficient permissions"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -2276,11 +2276,11 @@
           "400": {
             "description": "Validation error (e.g., invalid location/role ID)"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "403": {
             "description": "Forbidden - insufficient permissions"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -2351,14 +2351,14 @@
           "400": {
             "description": "Validation error"
           },
-          "401": {
-            "description": "Unauthorized"
+          "404": {
+            "description": "User not found or does not belong to your account"
           },
           "403": {
             "description": "Forbidden - insufficient permissions"
           },
-          "404": {
-            "description": "User not found or does not belong to your account"
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -2421,14 +2421,14 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
+          "404": {
+            "description": "User not found or does not belong to your account"
           },
           "403": {
             "description": "Forbidden - insufficient permissions"
           },
-          "404": {
-            "description": "User not found or does not belong to your account"
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -2517,14 +2517,14 @@
           "400": {
             "description": "Validation error (e.g., invalid city ID)"
           },
-          "401": {
-            "description": "Unauthorized"
+          "404": {
+            "description": "User not found or does not belong to your account"
           },
           "403": {
             "description": "Forbidden - insufficient permissions"
           },
-          "404": {
-            "description": "User not found or does not belong to your account"
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -2661,11 +2661,11 @@
           "400": {
             "description": "Validation error (e.g., duplicate role name, invalid permissions)"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "403": {
             "description": "Forbidden - insufficient permissions"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -2773,11 +2773,11 @@
           "400": {
             "description": "Validation error (e.g., invalid location ID)"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "403": {
             "description": "Forbidden - insufficient permissions"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -2848,14 +2848,14 @@
           "400": {
             "description": "Validation error (role has users assigned)"
           },
-          "401": {
-            "description": "Unauthorized"
+          "404": {
+            "description": "Role not found or does not belong to your account"
           },
           "403": {
             "description": "Forbidden - insufficient permissions or trying to delete system role"
           },
-          "404": {
-            "description": "Role not found or does not belong to your account"
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -2918,14 +2918,14 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
+          "404": {
+            "description": "Role not found or does not belong to your account"
           },
           "403": {
             "description": "Forbidden - insufficient permissions"
           },
-          "404": {
-            "description": "Role not found or does not belong to your account"
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -3014,14 +3014,14 @@
           "400": {
             "description": "Validation error (e.g., duplicate name)"
           },
-          "401": {
-            "description": "Unauthorized"
+          "404": {
+            "description": "Role not found or does not belong to your account"
           },
           "403": {
             "description": "Forbidden - insufficient permissions or trying to update system role"
           },
-          "404": {
-            "description": "Role not found or does not belong to your account"
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -6108,11 +6108,11 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "403": {
             "description": "Forbidden - user does not have access to the requested location"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -6270,11 +6270,11 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "403": {
             "description": "Forbidden - user does not have access to the requested location"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -6443,11 +6443,11 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "403": {
             "description": "Forbidden - user does not have access to the requested location"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -6588,11 +6588,11 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "403": {
             "description": "Forbidden - user does not have access to the requested location"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -6886,11 +6886,11 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "403": {
             "description": "Forbidden - user does not have access to the requested location"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -7050,11 +7050,11 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "403": {
             "description": "Forbidden - user does not have access to the requested location"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -7153,11 +7153,11 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "403": {
             "description": "Forbidden - user does not have access to the requested location"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -8194,14 +8194,14 @@
               }
             }
           },
+          "404": {
+            "description": "Quotation not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Quotation not found"
           }
         },
         "security": [
@@ -8469,17 +8469,17 @@
           "400": {
             "description": "Invalid request"
           },
+          "409": {
+            "description": "Duplicate items already exist in the target account"
+          },
+          "404": {
+            "description": "Source categories or locations not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Source categories or locations not found"
-          },
-          "409": {
-            "description": "Duplicate items already exist in the target account"
           }
         },
         "security": [
@@ -8574,14 +8574,14 @@
           "400": {
             "description": "Session cannot be closed (invalid state)"
           },
+          "404": {
+            "description": "Session not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Session not found"
           }
         },
         "security": [
@@ -10955,12 +10955,6 @@
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "404": {
             "description": "Order not found",
             "content": {
@@ -10980,6 +10974,12 @@
                 }
               }
             }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         },
         "security": [
@@ -15375,14 +15375,14 @@
               }
             }
           },
+          "404": {
+            "description": "Stock not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Stock not found"
           }
         },
         "security": [
@@ -15451,14 +15451,14 @@
               }
             }
           },
+          "404": {
+            "description": "Warehouse not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Warehouse not found"
           }
         },
         "security": [
@@ -15549,14 +15549,14 @@
           "400": {
             "description": "Reconciliation is not in progress, or all items already exist"
           },
+          "404": {
+            "description": "Reconciliation or items not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Reconciliation or items not found"
           }
         },
         "security": [
@@ -15647,14 +15647,14 @@
           "400": {
             "description": "Reconciliation is not in progress, no items found for categories, or all items already exist"
           },
+          "404": {
+            "description": "Reconciliation not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Reconciliation not found"
           }
         },
         "security": [
@@ -15742,14 +15742,14 @@
               }
             }
           },
+          "404": {
+            "description": "Reconciliation not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Reconciliation not found"
           }
         },
         "security": [
@@ -15820,14 +15820,14 @@
           "400": {
             "description": "Reconciliation is not in a cancellable status"
           },
+          "404": {
+            "description": "Reconciliation not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Reconciliation not found"
           }
         },
         "security": [
@@ -16086,14 +16086,14 @@
               }
             }
           },
+          "404": {
+            "description": "Reconciliation not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Reconciliation not found"
           }
         },
         "security": [
@@ -16168,6 +16168,9 @@
               }
             }
           },
+          "404": {
+            "description": "Reconciliation not found"
+          },
           "400": {
             "description": "Reconciliation is not in a valid status for submission"
           },
@@ -16176,9 +16179,6 @@
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Reconciliation not found"
           }
         },
         "security": [
@@ -16361,14 +16361,14 @@
           "400": {
             "description": "Cannot approve a non-submitted Purchase Order"
           },
+          "404": {
+            "description": "Purchase Order not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Purchase Order not found"
           }
         },
         "security": [
@@ -16640,14 +16640,14 @@
           "400": {
             "description": "Cannot delete a non-draft Purchase Order"
           },
+          "404": {
+            "description": "Purchase Order not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Purchase Order not found"
           }
         },
         "security": [
@@ -16710,14 +16710,14 @@
               }
             }
           },
+          "404": {
+            "description": "Purchase Order not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Purchase Order not found"
           }
         },
         "security": [
@@ -16947,14 +16947,14 @@
           "400": {
             "description": "Cannot send a non-approved Purchase Order"
           },
+          "404": {
+            "description": "Purchase Order not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Purchase Order not found"
           }
         },
         "security": [
@@ -17032,14 +17032,14 @@
           "400": {
             "description": "Cannot submit a non-draft Purchase Order"
           },
+          "404": {
+            "description": "Purchase Order not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Purchase Order not found"
           }
         },
         "security": [
@@ -17548,14 +17548,14 @@
           "400": {
             "description": "Transfer is not in Requested status"
           },
+          "404": {
+            "description": "Stock request not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Stock request not found"
           }
         },
         "security": [
@@ -17962,14 +17962,14 @@
           "400": {
             "description": "Transfer is not in Approved status or insufficient stock"
           },
-          "401": {
-            "description": "Unauthorized"
-          },
           "403": {
             "description": "Only the source warehouse location may dispatch"
           },
           "404": {
             "description": "Stock transfer not found"
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         },
         "security": [
@@ -18152,14 +18152,14 @@
               }
             }
           },
+          "404": {
+            "description": "Stock transfer not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Stock transfer not found"
           }
         },
         "security": [
@@ -18506,14 +18506,14 @@
           "400": {
             "description": "Transfer is not in Requested status"
           },
+          "404": {
+            "description": "Stock request not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Stock request not found"
           }
         },
         "security": [
@@ -18571,6 +18571,11 @@
           "x-name": "ReadPlateRecognizerRequest",
           "description": "The ReadPlateRecognizerRequest parameter",
           "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReadPlateRecognizerRequest"
+              }
+            },
             "multipart/form-data": {
               "schema": {
                 "$ref": "#/components/schemas/ReadPlateRecognizerRequest"
@@ -18891,14 +18896,14 @@
           "400": {
             "description": "Invalid request - invalid container/blob names"
           },
+          "404": {
+            "description": "File not found - the specified blob does not exist"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "File not found - the specified blob does not exist"
           }
         },
         "security": [
@@ -19337,14 +19342,14 @@
               }
             }
           },
+          "404": {
+            "description": "Discount not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Discount not found"
           }
         },
         "security": [
@@ -19515,14 +19520,14 @@
           "204": {
             "description": "Discount location removed successfully"
           },
+          "404": {
+            "description": "Discount or discount location not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden"
-          },
-          "404": {
-            "description": "Discount or discount location not found"
           }
         },
         "security": [
@@ -20040,11 +20045,11 @@
           "401": {
             "description": "Unauthorized or missing account header"
           },
-          "403": {
-            "description": "Forbidden"
-          },
           "500": {
             "description": "Internal server error"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         },
         "security": [
@@ -20154,11 +20159,11 @@
           "401": {
             "description": "Unauthorized or missing account header"
           },
-          "403": {
-            "description": "Forbidden"
-          },
           "500": {
             "description": "Internal server error"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         },
         "security": [
@@ -20554,7 +20559,7 @@
                       "PaymentDate": "2024-01-15T10:30:00+00:00",
                       "Reference": "TRX-001",
                       "Mode": "Bank Transfer",
-                      "Amount": 5000,
+                      "Amount": 5000.00,
                       "AllocatedTo": "12345, 12346",
                       "Notes": "Payment for January invoices",
                       "CompanyClientID": 1,
@@ -20565,7 +20570,7 @@
                       "PaymentDate": "2024-01-10T14:20:00+00:00",
                       "Reference": "CHQ-123",
                       "Mode": "Cash",
-                      "Amount": 2500,
+                      "Amount": 2500.00,
                       "AllocatedTo": "12344",
                       "Notes": null,
                       "CompanyClientID": 1,
@@ -21126,11 +21131,11 @@
                       "CarID": 500,
                       "CarDescription": "Toyota Camry 2023",
                       "RegistrationNo": "ABC-1234",
-                      "Subtotal": 1000,
-                      "ItemTaxTotal": 150,
-                      "GrandTotal": 1150,
-                      "AmountPaidTotal": 0,
-                      "AmountDueTotal": 1150,
+                      "Subtotal": 1000.00,
+                      "ItemTaxTotal": 150.00,
+                      "GrandTotal": 1150.00,
+                      "AmountPaidTotal": 0.00,
+                      "AmountDueTotal": 1150.00,
                       "PaymentStatus": 301,
                       "ServiceStatus": 105,
                       "CreatedAt": "2024-01-15T10:30:00+00:00",
@@ -21145,14 +21150,14 @@
               }
             }
           },
-          "400": {
-            "description": "Bad request - invalid filter parameters"
-          },
           "401": {
             "description": "Unauthorized - authentication required"
           },
           "403": {
             "description": "Forbidden - user does not have permission to view company invoices"
+          },
+          "400": {
+            "description": "Bad request - invalid filter parameters"
           }
         },
         "security": [
@@ -21455,14 +21460,14 @@
           "400": {
             "description": "Cannot delete - has active cars or invoices"
           },
+          "404": {
+            "description": "Company client not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden - insufficient permissions"
-          },
-          "404": {
-            "description": "Company client not found"
           }
         },
         "security": [
@@ -21525,14 +21530,14 @@
               }
             }
           },
+          "404": {
+            "description": "Company client not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden - insufficient permissions"
-          },
-          "404": {
-            "description": "Company client not found"
           }
         },
         "security": [
@@ -21621,14 +21626,14 @@
           "400": {
             "description": "Validation errors or business rule violations"
           },
+          "404": {
+            "description": "Company client not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden - insufficient permissions"
-          },
-          "404": {
-            "description": "Company client not found"
           }
         },
         "security": [
@@ -21750,14 +21755,14 @@
               }
             }
           },
+          "404": {
+            "description": "Company client not found"
+          },
           "401": {
             "description": "Unauthorized"
           },
           "403": {
             "description": "Forbidden - insufficient permissions"
-          },
-          "404": {
-            "description": "Company client not found"
           }
         },
         "security": [
@@ -26321,7 +26326,9 @@
           "RootElement"
         ],
         "properties": {
-          "RootElement": {}
+          "RootElement": {
+            "type": "object"
+          }
         }
       },
       "SampleInvoiceComplianceInfo": {
@@ -26661,7 +26668,7 @@
             "type": "integer",
             "description": "The Terminal ID to onboard.",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           }
@@ -26680,7 +26687,7 @@
             "type": "integer",
             "description": "The Terminal ID to renew certificate for.",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
@@ -26764,7 +26771,7 @@
             "type": "integer",
             "description": "System compliance ID to submit samples for.",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           }
@@ -26991,7 +26998,7 @@
           "AccountID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
@@ -27209,7 +27216,7 @@
           "LocationID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
@@ -28469,7 +28476,7 @@
           "SubscriptionID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
@@ -28688,7 +28695,7 @@
           "TaxRate": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "IsDefault": {
             "type": "boolean",
@@ -28716,7 +28723,7 @@
         "example": {
           "TaxName": "VAT",
           "TaxNameAr": "ضريبة القيمة المضافة",
-          "TaxRate": 15,
+          "TaxRate": 15.00,
           "IsDefault": false
         },
         "additionalProperties": false,
@@ -28743,9 +28750,9 @@
           "TaxRate": {
             "type": "number",
             "format": "decimal",
-            "maximum": 100,
-            "minimum": 0,
-            "example": 15
+            "maximum": 100.0,
+            "minimum": 0.0,
+            "example": 15.00
           },
           "IsDefault": {
             "type": "boolean",
@@ -29040,7 +29047,7 @@
           "PaymentDays": {
             "type": "integer",
             "format": "int32",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": null,
             "exclusiveMinimum": true
@@ -29614,7 +29621,7 @@
           "SubscriptionID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": false,
             "example": 1,
             "exclusiveMinimum": true
@@ -29622,7 +29629,7 @@
           "AddOnID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
@@ -29899,7 +29906,7 @@
           "DisplayOrder": {
             "type": "integer",
             "format": "int32",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": 1
           },
@@ -29998,27 +30005,27 @@
           "GrossSales": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalDiscounts": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalRefunds": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "NetSales": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalTax": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "VoidedOrdersCount": {
             "type": "integer",
@@ -30028,7 +30035,7 @@
           "VoidedAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalOrders": {
             "type": "integer",
@@ -30043,7 +30050,7 @@
           "PartialPaymentsAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "RefundedOrdersCount": {
             "type": "integer",
@@ -30059,32 +30066,32 @@
           "CashOpeningBalance": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CashPayments": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CashRefunds": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CashClosingBalanceExpected": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CashClosingBalanceActual": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CashDifference": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "ReportName": {
             "type": "string",
@@ -30177,27 +30184,27 @@
           "GrossSales": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalDiscounts": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalRefunds": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "NetSales": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalTax": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "VoidedOrdersCount": {
             "type": "integer",
@@ -30207,7 +30214,7 @@
           "VoidedAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalOrders": {
             "type": "integer",
@@ -30222,7 +30229,7 @@
           "PartialPaymentsAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "RefundedOrdersCount": {
             "type": "integer",
@@ -30238,32 +30245,32 @@
           "CashOpeningBalance": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CashPayments": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CashRefunds": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CashClosingBalanceExpected": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CashClosingBalanceActual": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CashDifference": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           }
         }
       },
@@ -30323,27 +30330,27 @@
           "GrossSales": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalDiscounts": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalRefunds": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "NetSales": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalTax": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "VoidedOrdersCount": {
             "type": "integer",
@@ -30353,7 +30360,7 @@
           "VoidedAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalOrders": {
             "type": "integer",
@@ -30368,7 +30375,7 @@
           "PartialPaymentsAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "RefundedOrdersCount": {
             "type": "integer",
@@ -30384,32 +30391,32 @@
           "CashOpeningBalance": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CashPayments": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CashRefunds": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CashClosingBalanceExpected": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CashClosingBalanceActual": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CashDifference": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           }
         }
       },
@@ -30431,7 +30438,7 @@
           "Amount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TransactionCount": {
             "type": "integer",
@@ -30441,7 +30448,7 @@
           "RefundAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           }
         }
       },
@@ -30488,27 +30495,27 @@
           "GrossSales": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalDiscounts": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalRefunds": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "NetSales": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalTax": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "VoidedOrdersCount": {
             "type": "integer",
@@ -30518,7 +30525,7 @@
           "VoidedAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalOrders": {
             "type": "integer",
@@ -30533,7 +30540,7 @@
           "PartialPaymentsAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "RefundedOrdersCount": {
             "type": "integer",
@@ -30684,25 +30691,25 @@
             "type": "number",
             "description": "Current stock on hand (Stock.CurrentStock)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "StockOut": {
             "type": "number",
             "description": "Quantity sold in the date period (from StockHistory where ReferenceType = Sale)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "StockCost": {
             "type": "number",
             "description": "Cost of current stock (CurrentStock × Stock.AvgCost)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "StockPrice": {
             "type": "number",
             "description": "Retail value of current stock (CurrentStock × Item.Price)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "WarehouseID": {
             "type": "integer",
@@ -30743,37 +30750,37 @@
             "type": "number",
             "description": "Total current stock across all items",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalStockOut": {
             "type": "number",
             "description": "Total stock out in the period",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalStockCost": {
             "type": "number",
             "description": "Total cost of inventory",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalStockPrice": {
             "type": "number",
             "description": "Total retail value of inventory",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "PotentialProfit": {
             "type": "number",
             "description": "Potential profit (TotalStockPrice - TotalStockCost)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "PotentialProfitMargin": {
             "type": "number",
             "description": "Potential profit margin percentage",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalWarehouses": {
             "type": "integer",
@@ -30872,31 +30879,31 @@
             "type": "number",
             "description": "Gross sales — sum of order subtotals (before discounts) for completed/paid orders",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Discounts": {
             "type": "number",
             "description": "Total discounts applied (line item + order-level discounts)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Tax": {
             "type": "number",
             "description": "Net tax collected (gross tax minus refunded tax amounts for refunds processed on this date)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Refunds": {
             "type": "number",
             "description": "Refunds processed on this date (by refund transaction date, not original order date)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "NetSales": {
             "type": "number",
             "description": "Net sales = Gross Sales − Discounts − Refunds",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Orders": {
             "type": "integer",
@@ -30926,31 +30933,31 @@
             "type": "number",
             "description": "Total gross sales (sum of subtotals for all completed/paid orders in period)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalNetSales": {
             "type": "number",
             "description": "Total net sales = Gross Sales − Discounts − Refunds",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalTax": {
             "type": "number",
             "description": "Total tax collected (net of refunded tax amounts within the period)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalDiscounts": {
             "type": "number",
             "description": "Total discounts applied across all orders in the period",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalRefunds": {
             "type": "number",
             "description": "Total refunds issued in the period (by refund transaction date)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalOrders": {
             "type": "integer",
@@ -30968,7 +30975,7 @@
             "type": "number",
             "description": "Total value of voided orders in the period",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "ChartData": {
             "type": "array",
@@ -31002,31 +31009,31 @@
             "type": "number",
             "description": "Net sales for this week (Gross − Discounts − Refunds)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "GrossSales": {
             "type": "number",
             "description": "Gross sales (subtotals) for this week",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Discounts": {
             "type": "number",
             "description": "Total discounts for this week",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Tax": {
             "type": "number",
             "description": "Net tax collected for this week",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Refunds": {
             "type": "number",
             "description": "Refunds processed in this week (by refund date)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Orders": {
             "type": "integer",
@@ -31185,43 +31192,43 @@
             "type": "number",
             "description": "Total quantity sold (minus refunded quantity)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "GrossSales": {
             "type": "number",
             "description": "Gross sales (Quantity × UnitPrice, before discounts)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "NetSales": {
             "type": "number",
             "description": "Net sales (Gross - Line Discounts - Allocated Order Discounts + Taxes)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Refund": {
             "type": "number",
             "description": "Total refund amount for this product",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Discount": {
             "type": "number",
             "description": "Total discount (line item discount + allocated order discount)",
             "format": "decimal",
-            "example": 10
+            "example": 10.00
           },
           "Taxes": {
             "type": "number",
             "description": "Total tax amount",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Profit": {
             "type": "number",
             "description": "Item profit (Net Sales - Cost of Goods Sold)\nCalculated as: NetSales - (UnitCost × ItemSold)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           }
         }
       },
@@ -31251,49 +31258,49 @@
             "type": "number",
             "description": "Total items sold (sum of all quantities minus refunds)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalGrossSales": {
             "type": "number",
             "description": "Total gross sales",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalNetSales": {
             "type": "number",
             "description": "Total net sales",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalRefunds": {
             "type": "number",
             "description": "Total refunds",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalDiscounts": {
             "type": "number",
             "description": "Total discounts",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalTaxes": {
             "type": "number",
             "description": "Total taxes",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalProfit": {
             "type": "number",
             "description": "Total profit across all products",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "AverageProfitMargin": {
             "type": "number",
             "description": "Average profit margin percentage",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           }
         }
       },
@@ -31400,43 +31407,43 @@
             "type": "number",
             "description": "Total quantity sold (minus refunded quantity)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "GrossSales": {
             "type": "number",
             "description": "Gross sales (Quantity × UnitPrice, before discounts)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "NetSales": {
             "type": "number",
             "description": "Net sales (Gross - Line Discounts - Allocated Order Discounts + Taxes)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Refund": {
             "type": "number",
             "description": "Total refund amount for this package",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Discount": {
             "type": "number",
             "description": "Total discount (line item discount + allocated order discount)",
             "format": "decimal",
-            "example": 10
+            "example": 10.00
           },
           "Taxes": {
             "type": "number",
             "description": "Total tax amount",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Profit": {
             "type": "number",
             "description": "Package profit (Net Sales - Cost of Goods Sold)\nCalculated as: NetSales - (UnitCost × PackagesSold)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           }
         }
       },
@@ -31466,49 +31473,49 @@
             "type": "number",
             "description": "Total packages sold (sum of all quantities minus refunds)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalGrossSales": {
             "type": "number",
             "description": "Total gross sales",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalNetSales": {
             "type": "number",
             "description": "Total net sales",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalRefunds": {
             "type": "number",
             "description": "Total refunds",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalDiscounts": {
             "type": "number",
             "description": "Total discounts",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalTaxes": {
             "type": "number",
             "description": "Total taxes",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalProfit": {
             "type": "number",
             "description": "Total profit across all packages",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "AverageProfitMargin": {
             "type": "number",
             "description": "Average profit margin percentage",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           }
         }
       },
@@ -31630,25 +31637,25 @@
             "type": "number",
             "description": "Net sales (total sales - refunds)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalDiscounts": {
             "type": "number",
             "description": "Total discounts given",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalRefunds": {
             "type": "number",
             "description": "Total refunds issued",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "AverageOrderValue": {
             "type": "number",
             "description": "Average order value (net sales / total orders)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalCustomers": {
             "type": "integer",
@@ -31710,7 +31717,7 @@
             "type": "number",
             "description": "Metric value",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Currency": {
             "type": "string",
@@ -31742,7 +31749,7 @@
             "description": "Percentage change from previous period (null if previous period had no data)",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "Direction": {
             "type": "string",
@@ -31781,7 +31788,7 @@
             "type": "number",
             "description": "Net sales for the month",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           }
         }
       },
@@ -31804,13 +31811,13 @@
             "type": "number",
             "description": "Total amount paid via this payment method",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Percentage": {
             "type": "number",
             "description": "Percentage of total payments",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           }
         }
       },
@@ -31845,7 +31852,7 @@
             "type": "number",
             "description": "Total revenue from this product",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           }
         }
       },
@@ -31972,31 +31979,31 @@
             "type": "number",
             "description": "Order subtotal (before discounts and tax)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Discount": {
             "type": "number",
             "description": "Discount amount applied",
             "format": "decimal",
-            "example": 10
+            "example": 10.00
           },
           "Tax": {
             "type": "number",
             "description": "Tax amount",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Refund": {
             "type": "number",
             "description": "Refund amount",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Total": {
             "type": "number",
             "description": "Total amount (final price)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "OrderStatus": {
             "type": "integer",
@@ -32037,37 +32044,37 @@
             "type": "number",
             "description": "Total gross sales (sum of subtotals)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalNetSales": {
             "type": "number",
             "description": "Total net sales (sum of totals)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalDiscounts": {
             "type": "number",
             "description": "Total discounts given",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalTax": {
             "type": "number",
             "description": "Total tax collected",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalRefunds": {
             "type": "number",
             "description": "Total refunds issued",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "AverageOrderValue": {
             "type": "number",
             "description": "Average order value (net sales / order count)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "ChartData": {
             "type": "array",
@@ -32108,37 +32115,37 @@
             "type": "number",
             "description": "Total revenue (net sales) for this day",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "GrossSales": {
             "type": "number",
             "description": "Gross sales (subtotal) for this day",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "AverageOrderValue": {
             "type": "number",
             "description": "Average order value for this day",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Discounts": {
             "type": "number",
             "description": "Total discounts given for this day",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Tax": {
             "type": "number",
             "description": "Total tax collected for this day",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Refunds": {
             "type": "number",
             "description": "Total refunds issued for this day",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           }
         }
       },
@@ -32224,19 +32231,19 @@
             "type": "number",
             "description": "Current stock quantity",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "MinimumStock": {
             "type": "number",
             "description": "Minimum stock to reorder",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "StockPercentage": {
             "type": "number",
             "description": "Stock percentage (CurrentStock / MinimumStock * 100)",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           }
         }
       },
@@ -32266,13 +32273,13 @@
             "type": "number",
             "description": "Total refund amount for this reason",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Percentage": {
             "type": "number",
             "description": "Percentage of total refunds",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           }
         }
       },
@@ -32309,13 +32316,13 @@
             "type": "number",
             "description": "Total discount amount given",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Percentage": {
             "type": "number",
             "description": "Percentage of total discounts",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           }
         }
       },
@@ -32364,7 +32371,7 @@
             "type": "number",
             "description": "Total sales amount",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           }
         }
       },
@@ -32400,7 +32407,7 @@
             "type": "number",
             "description": "Total sales amount",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           }
         }
       },
@@ -32504,7 +32511,7 @@
           "AccountID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
@@ -32597,12 +32604,12 @@
           "TotalRefunded": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalVatRefunded": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "RefundReason": {
             "type": "string",
@@ -32656,12 +32663,12 @@
           "Amount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TaxAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "ReferenceNumber": {
             "type": "string",
@@ -32850,62 +32857,62 @@
           "Subtotal": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "ItemDiscountTotal": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "ItemDiscountPercent": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "DiscountAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Tax": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "AdditionalCharges": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "GrandTotal": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "AmountPaid": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "OrderAmountPending": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TaxPercent": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "DiscountPercent": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "RefundAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Refund": {
             "nullable": true,
@@ -33094,19 +33101,19 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "FixedAmountValue": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "MinimumPurchaseAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "MinimumQuantity": {
             "type": "integer",
@@ -33332,19 +33339,19 @@
           "RefundAmountTotal": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "RefundedTotalTaxAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "GrandTotalRefund": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "LastRefundDate": {
             "type": "string",
@@ -33413,17 +33420,17 @@
           "RefundAmountTotal": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "RefundedTaxAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "GrandTotalRefund": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "RefundPolicyID": {
             "type": "integer",
@@ -33531,17 +33538,17 @@
           "RefundedQuantity": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "RefundedAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "RefundedTaxAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "RefundNotes": {
             "type": "string",
@@ -33649,12 +33656,12 @@
           "UnitPrice": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "UnitCost": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "DiscountID": {
             "type": "integer",
@@ -33674,47 +33681,47 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "DiscountPercent": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "OrderDiscountPerItem": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "OrderDiscountPerItemPercent": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "OrderDiscountAllocation": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "Subtotal": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TaxAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "TaxPercent": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "IsInclusiveVAT": {
             "type": "boolean",
@@ -33723,7 +33730,7 @@
           "GrandTotal": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "LineItemStatus": {
             "$ref": "#/components/schemas/ServiceStatusType"
@@ -33958,7 +33965,7 @@
           "Discount": {
             "type": "number",
             "format": "decimal",
-            "example": 10
+            "example": 10.00
           },
           "DiscountType": {
             "type": "string",
@@ -33987,19 +33994,19 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "RefundedAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "RefundedTaxAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "RefundPolicyID": {
             "type": "integer",
@@ -34062,7 +34069,7 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "NextKM": {
             "type": "integer",
@@ -34254,7 +34261,7 @@
           "AmountPaid": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "ExternalReferenceNumber": {
             "type": "string",
@@ -34341,7 +34348,7 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "FuelType": {
             "type": "string",
@@ -34352,7 +34359,7 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "ImagePath": {
             "type": "string",
@@ -34676,23 +34683,23 @@
           "OpeningBalance": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CreditLimit": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "OutstandingBalance": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "AvailableCredit": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "PaymentTerms": {
             "type": "integer",
@@ -35071,13 +35078,13 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "Latitude": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "IsFeatured": {
             "type": "boolean",
@@ -35434,7 +35441,7 @@
           "SessionID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
@@ -35470,14 +35477,14 @@
           "RefundedAmount": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1
+            "minimum": 0.0,
+            "example": 1.0
           },
           "RefundedTax": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1
+            "minimum": 0.0,
+            "example": 1.0
           },
           "RefundNotes": {
             "type": "string",
@@ -35498,21 +35505,21 @@
           "TotalRefundAmount": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1,
+            "minimum": 0.0,
+            "example": 1.0,
             "exclusiveMinimum": true
           },
           "TotalRefundTax": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1
+            "minimum": 0.0,
+            "example": 1.0
           },
           "GrandTotalRefund": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1,
+            "minimum": 0.0,
+            "example": 1.0,
             "exclusiveMinimum": true
           },
           "RefundDate": {
@@ -35591,30 +35598,30 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "Discount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 10
+            "example": 10.00
           },
           "Total": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TaxAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "AdditionalCost": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "Status": {
             "$ref": "#/components/schemas/QuotationStatus"
@@ -35770,44 +35777,44 @@
           "UnitPrice": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "DiscountAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "DiscountPercent": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "TaxPercent": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TaxAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "GrandTotal": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "OrderDiscountAllocation": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Subtotal": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "IsInclusiveVAT": {
             "type": "boolean",
@@ -35842,11 +35849,11 @@
           "LocationID": 1,
           "Date": "2024-01-15T10:30:00+00:00",
           "DueDate": "2024-02-14T10:30:00+00:00",
-          "SubTotal": 1200,
-          "Discount": 60,
-          "Total": 1311,
-          "TaxAmount": 171,
-          "AdditionalCost": 0,
+          "SubTotal": 1200.00,
+          "Discount": 60.00,
+          "Total": 1311.00,
+          "TaxAmount": 171.00,
+          "AdditionalCost": 0.0,
           "Status": 2,
           "VatNumber": "300000000000003",
           "BillingAddress": "123 Main Street, Riyadh",
@@ -35862,15 +35869,15 @@
               "ItemID": 1,
               "PackageID": null,
               "Notes": "Premium brake pads - Updated",
-              "Quantity": 2,
-              "UnitPrice": 600,
-              "DiscountAmount": 60,
-              "DiscountPercent": 5,
-              "TaxPercent": 15,
-              "TaxAmount": 171,
-              "GrandTotal": 1311,
-              "OrderDiscountAllocation": 0,
-              "Subtotal": 1200,
+              "Quantity": 2.0,
+              "UnitPrice": 600.00,
+              "DiscountAmount": 60.00,
+              "DiscountPercent": 5.0,
+              "TaxPercent": 15.0,
+              "TaxAmount": 171.00,
+              "GrandTotal": 1311.00,
+              "OrderDiscountAllocation": 0.0,
+              "Subtotal": 1200.00,
               "IsInclusiveVAT": false
             }
           ]
@@ -35903,7 +35910,7 @@
           "CompanyClientID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
@@ -35941,31 +35948,31 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1200
+            "example": 1200.00
           },
           "Discount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 60
+            "example": 60.00
           },
           "Total": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1311
+            "minimum": 0.0,
+            "example": 1311.00
           },
           "TaxAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 171
+            "example": 171.00
           },
           "AdditionalCost": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 0
+            "example": 0.0
           },
           "Status": {
             "example": 2,
@@ -36028,15 +36035,15 @@
                 "ItemID": 1,
                 "PackageID": null,
                 "Notes": "Premium brake pads - Updated",
-                "Quantity": 2,
-                "UnitPrice": 600,
-                "DiscountAmount": 60,
-                "DiscountPercent": 5,
-                "TaxPercent": 15,
-                "TaxAmount": 171,
-                "GrandTotal": 1311,
-                "OrderDiscountAllocation": 0,
-                "Subtotal": 1200,
+                "Quantity": 2.0,
+                "UnitPrice": 600.00,
+                "DiscountAmount": 60.00,
+                "DiscountPercent": 5.0,
+                "TaxPercent": 15.0,
+                "TaxAmount": 171.00,
+                "GrandTotal": 1311.00,
+                "OrderDiscountAllocation": 0.0,
+                "Subtotal": 1200.00,
                 "IsInclusiveVAT": false
               }
             ],
@@ -36080,54 +36087,54 @@
           "Quantity": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 10,
             "exclusiveMinimum": true
           },
           "UnitPrice": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1
+            "minimum": 0.0,
+            "example": 1.0
           },
           "DiscountAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "DiscountPercent": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "TaxPercent": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TaxAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "GrandTotal": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1
+            "minimum": 0.0,
+            "example": 1.0
           },
           "OrderDiscountAllocation": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Subtotal": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1
+            "minimum": 0.0,
+            "example": 1.0
           },
           "IsInclusiveVAT": {
             "type": "boolean",
@@ -36261,27 +36268,27 @@
           "SourceAccountID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
           "SourceLocationID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
           "TargetAccountID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 2,
             "exclusiveMinimum": true
           },
           "TargetLocationIDs": {
             "type": "array",
-            "minimum": 0,
+            "minimum": 0.0,
             "minLength": 1,
             "nullable": false,
             "example": [
@@ -36296,7 +36303,7 @@
           },
           "CategoryIDs": {
             "type": "array",
-            "minimum": 0,
+            "minimum": 0.0,
             "minLength": 1,
             "nullable": false,
             "example": [
@@ -36446,55 +36453,55 @@
             "type": "number",
             "description": "Opening cash balance entered by user.",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CashClosingBalanceTheoretical": {
             "type": "number",
             "description": "Calculated theoretical closing balance.",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CashClosingBalanceActual": {
             "type": "number",
             "description": "Actual cash counted at closing.",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CashDifference": {
             "type": "number",
             "description": "Difference between actual and theoretical (positive = surplus, negative = shortage).",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalSales": {
             "type": "number",
             "description": "Total sales amount from all orders.",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalRefunds": {
             "type": "number",
             "description": "Total refunds amount from all orders.",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalCashPayments": {
             "type": "number",
             "description": "Total cash payments received.",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalCardPayments": {
             "type": "number",
             "description": "Total card payments received.",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalOtherPayments": {
             "type": "number",
             "description": "Total other payment types received.",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "OrderCount": {
             "type": "integer",
@@ -36541,8 +36548,8 @@
             "type": "number",
             "description": "Actual cash counted in the drawer at closing.",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1
+            "minimum": 0.0,
+            "example": 1.0
           },
           "ClosingNotes": {
             "type": "string",
@@ -36565,7 +36572,7 @@
             "type": "integer",
             "description": "Terminal ID to create the session for.",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
@@ -36573,8 +36580,8 @@
             "type": "number",
             "description": "Opening cash balance in the drawer.",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1
+            "minimum": 0.0,
+            "example": 1.0
           },
           "OpeningNotes": {
             "type": "string",
@@ -36753,8 +36760,8 @@
           "NameAr": "باقة خدمة السيارة الفاخرة",
           "Description": "Premium car service with extended warranty",
           "DescriptionAr": "خدمة السيارة الفاخرة مع ضمان ممتد",
-          "Price": 300,
-          "Cost": 180,
+          "Price": 300.00,
+          "Cost": 180.00,
           "SKU": "PKG-FULL-001",
           "Barcode": "9876543210123",
           "ImagePath": "images/packages/premium-service.png",
@@ -36763,27 +36770,27 @@
             {
               "LocationPackageID": 1,
               "LocationID": 1,
-              "Price": 300
+              "Price": 300.00
             }
           ],
           "PackageDetails": [
             {
               "PackageDetailID": 1,
               "ItemID": 1,
-              "Quantity": 1,
-              "Discount": 0,
-              "Cost": 70,
+              "Quantity": 1.0,
+              "Discount": 0.0,
+              "Cost": 70.00,
               "DiscountType": null,
-              "Price": 120
+              "Price": 120.00
             },
             {
               "PackageDetailID": 2,
               "ItemID": 2,
-              "Quantity": 2,
-              "Discount": 0,
-              "Cost": 55,
+              "Quantity": 2.0,
+              "Discount": 0.0,
+              "Cost": 55.00,
               "DiscountType": null,
-              "Price": 90
+              "Price": 90.00
             }
           ]
         },
@@ -36829,14 +36836,14 @@
           "Price": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 300
+            "minimum": 0.0,
+            "example": 300.00
           },
           "Cost": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 180
+            "minimum": 0.0,
+            "example": 180.00
           },
           "SKU": {
             "type": "string",
@@ -36870,7 +36877,7 @@
               {
                 "LocationPackageID": 1,
                 "LocationID": 1,
-                "Price": 300
+                "Price": 300.00
               }
             ],
             "items": {
@@ -36883,20 +36890,20 @@
               {
                 "PackageDetailID": 1,
                 "ItemID": 1,
-                "Quantity": 1,
-                "Discount": 0,
-                "Cost": 70,
+                "Quantity": 1.0,
+                "Discount": 0.0,
+                "Cost": 70.00,
                 "DiscountType": null,
-                "Price": 120
+                "Price": 120.00
               },
               {
                 "PackageDetailID": 2,
                 "ItemID": 2,
-                "Quantity": 2,
-                "Discount": 0,
-                "Cost": 55,
+                "Quantity": 2.0,
+                "Discount": 0.0,
+                "Cost": 55.00,
                 "DiscountType": null,
-                "Price": 90
+                "Price": 90.00
               }
             ],
             "items": {
@@ -36929,7 +36936,7 @@
           "Price": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 99.99
           }
         }
@@ -36961,19 +36968,19 @@
           "Quantity": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 10,
             "exclusiveMinimum": true
           },
           "Discount": {
             "type": "number",
             "format": "decimal",
-            "example": 10
+            "example": 10.00
           },
           "Cost": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 49.99
           },
           "DiscountType": {
@@ -36984,7 +36991,7 @@
           "Price": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 99.99
           }
         }
@@ -37047,7 +37054,7 @@
             "type": "integer",
             "description": "OrderID is optional when creating OrderNote as part of Order creation.\nIt will be automatically set from the parent Order.",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": 50001,
             "exclusiveMinimum": true
@@ -37176,7 +37183,7 @@
           "AmountPaid": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "ExternalReferenceNumber": {
             "type": "string",
@@ -37368,17 +37375,17 @@
           "GrandTotal": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "AmountPaid": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "OrderAmountPending": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "DiscountID": {
             "type": "integer",
@@ -37523,27 +37530,27 @@
           "Subtotal": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "GrandTotal": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "AdditionalCharges": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "DiscountPercent": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "DiscountAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           }
         }
       },
@@ -37592,17 +37599,17 @@
           "UnitPrice": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "UnitCost": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TaxPercent": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "IsInclusiveVAT": {
             "type": "boolean",
@@ -37633,18 +37640,18 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "DiscountAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "GrandTotal": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "LineItemStatus": {
             "$ref": "#/components/schemas/ServiceStatusType"
@@ -37813,55 +37820,55 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "DiscountAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "Tax": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "AdditionalCharges": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "Total": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "AmountPaid": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "TaxPercent": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "DiscountPercent": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "RefundAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "LastOrderPaymentStatusID": {
             "type": "integer",
@@ -38658,7 +38665,7 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "ImagePath": {
             "type": "string",
@@ -38685,7 +38692,7 @@
           "MakeID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
@@ -38708,8 +38715,8 @@
           "Year": {
             "type": "integer",
             "format": "int32",
-            "maximum": 2100,
-            "minimum": 1900,
+            "maximum": 2100.0,
+            "minimum": 1900.0,
             "minLength": 1,
             "nullable": false,
             "example": 2024
@@ -38725,10 +38732,10 @@
           "RecommendedLiters": {
             "type": "number",
             "format": "decimal",
-            "maximum": 1000,
-            "minimum": 0,
+            "maximum": 1000.0,
+            "minimum": 0.0,
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "ImagePath": {
             "type": "string",
@@ -38740,7 +38747,7 @@
           "DisplayOrder": {
             "type": "integer",
             "format": "int32",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": 1
           },
@@ -38887,7 +38894,7 @@
           "DisplayOrder": {
             "type": "integer",
             "format": "int32",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": 1
           },
@@ -39212,13 +39219,13 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "Latitude": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "IsFeatured": {
             "type": "boolean",
@@ -39605,7 +39612,7 @@
           "StatusID": {
             "type": "integer",
             "format": "int32",
-            "minimum": 0,
+            "minimum": 0.0,
             "minLength": 1,
             "nullable": false,
             "example": 1,
@@ -39867,7 +39874,7 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "IsInclusiveVAT": {
             "type": "boolean",
@@ -39877,7 +39884,7 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "ReorderLevel": {
             "type": "integer",
@@ -39895,12 +39902,12 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "TaxValue": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CreatedAt": {
             "type": "string",
@@ -39999,17 +40006,17 @@
           "OpeningStock": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CurrentStock": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "MinimumStockToReorder": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CreatedAt": {
             "type": "string",
@@ -40039,8 +40046,8 @@
           "Barcode": "1234567890123",
           "SKU": "BRK-001",
           "DisplayOrder": 1,
-          "Cost": 28,
-          "Price": 50,
+          "Cost": 28.00,
+          "Price": 50.00,
           "ItemTypeID": 1,
           "PropertiesJSON": null,
           "IsInventoryItem": true,
@@ -40055,7 +40062,7 @@
             {
               "LocationItemID": 1,
               "LocationID": 1,
-              "Price": 50,
+              "Price": 50.00,
               "WarehouseStocks": []
             }
           ]
@@ -40077,7 +40084,7 @@
           "CategoryID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
@@ -40125,19 +40132,19 @@
           "Cost": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 28
+            "minimum": 0.0,
+            "example": 28.00
           },
           "Price": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 50
+            "minimum": 0.0,
+            "example": 50.00
           },
           "ItemTypeID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
@@ -40157,7 +40164,7 @@
           "MinOpenPrice": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": null,
             "exclusiveMinimum": true
@@ -40203,7 +40210,7 @@
               {
                 "LocationItemID": 1,
                 "LocationID": 1,
-                "Price": 50,
+                "Price": 50.00,
                 "WarehouseStocks": []
               }
             ],
@@ -40231,14 +40238,14 @@
           "LocationID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
           "Price": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 99.99
           },
           "WarehouseStocks": {
@@ -40268,17 +40275,17 @@
           "OpeningStock": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CurrentStock": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "MinimumStock": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "IsAllowNegativeInventory": {
             "type": "boolean",
@@ -40383,17 +40390,17 @@
           "MinimumStock": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CurrentStock": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "OpeningStock": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "IsAllowNegativeInventory": {
             "type": "boolean",
@@ -40526,7 +40533,7 @@
           "TotalVarianceValue": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CreatedAt": {
             "type": "string",
@@ -40641,23 +40648,23 @@
           "SystemQuantity": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "PhysicalQuantity": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Variance": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "VariancePercentage": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "UnitID": {
             "type": "integer",
@@ -40735,7 +40742,7 @@
           "ItemID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 100,
             "exclusiveMinimum": true
           },
@@ -40756,7 +40763,7 @@
         "properties": {
           "CategoryIDs": {
             "type": "array",
-            "minimum": 0,
+            "minimum": 0.0,
             "minLength": 1,
             "nullable": false,
             "exclusiveMinimum": true,
@@ -40860,7 +40867,7 @@
           "WarehouseID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
@@ -40923,12 +40930,12 @@
           "SystemQuantity": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "PhysicalQuantity": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "UnitID": {
             "type": "integer",
@@ -40997,7 +41004,7 @@
           "Details": [
             {
               "ItemID": 1,
-              "PhysicalQuantity": 10,
+              "PhysicalQuantity": 10.0,
               "ReasonType": 1,
               "Notes": null
             }
@@ -41037,7 +41044,7 @@
             "example": [
               {
                 "ItemID": 1,
-                "PhysicalQuantity": 10,
+                "PhysicalQuantity": 10.0,
                 "ReasonType": 1,
                 "Notes": null
               }
@@ -41059,15 +41066,15 @@
           "ItemID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 100,
             "exclusiveMinimum": true
           },
           "PhysicalQuantity": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1
+            "minimum": 0.0,
+            "example": 1.0
           },
           "ReasonType": {
             "type": "integer",
@@ -41150,30 +41157,30 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "Discount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 10
+            "example": 10.00
           },
           "ShippingCost": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "TaxAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "Total": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "PaymentMethod": {
             "type": "integer",
@@ -41298,13 +41305,13 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "TaxAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "UnitID": {
             "type": "integer",
@@ -41321,22 +41328,22 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 10
+            "example": 10.00
           },
           "CostPerUnit": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "PricePerUnit": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Total": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CreatedAt": {
             "type": "string",
@@ -41361,11 +41368,11 @@
           "LocationID": 1,
           "PODate": "0001-01-01T00:00:00+00:00",
           "ExpectedDeliveryDate": "2024-01-15T10:30:00Z",
-          "SubTotal": 2500,
-          "Discount": 150,
-          "ShippingCost": 75,
-          "TaxAmount": 200,
-          "Total": 2625,
+          "SubTotal": 2500.0,
+          "Discount": 150.0,
+          "ShippingCost": 75.0,
+          "TaxAmount": 200.0,
+          "Total": 2625.0,
           "PaymentMethod": 1,
           "PaymentTerms": null,
           "Notes": "Please expedite shipping.",
@@ -41373,25 +41380,25 @@
           "Details": [
             {
               "ItemID": 3,
-              "Quantity": 5,
+              "Quantity": 5.0,
               "TaxRate": 0.1,
-              "TaxAmount": 19,
+              "TaxAmount": 19.0,
               "UnitID": 1,
-              "Discount": 10,
-              "CostPerUnit": 200,
-              "PricePerUnit": 190,
-              "Total": 950
+              "Discount": 10.0,
+              "CostPerUnit": 200.0,
+              "PricePerUnit": 190.0,
+              "Total": 950.0
             },
             {
               "ItemID": 4,
-              "Quantity": 10,
+              "Quantity": 10.0,
               "TaxRate": 0.1,
               "TaxAmount": 14.5,
               "UnitID": 1,
-              "Discount": 5,
-              "CostPerUnit": 150,
-              "PricePerUnit": 145,
-              "Total": 1450
+              "Discount": 5.0,
+              "CostPerUnit": 150.0,
+              "PricePerUnit": 145.0,
+              "Total": 1450.0
             }
           ]
         },
@@ -41420,7 +41427,7 @@
           "SupplierID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
@@ -41444,38 +41451,38 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 2500
+            "example": 2500.0
           },
           "Discount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 150
+            "example": 150.0
           },
           "ShippingCost": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 75
+            "example": 75.0
           },
           "TaxAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 200
+            "example": 200.0
           },
           "Total": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 2625,
+            "minimum": 0.0,
+            "example": 2625.0,
             "exclusiveMinimum": true
           },
           "PaymentMethod": {
             "type": "integer",
             "format": "int32",
-            "maximum": 3,
-            "minimum": 1,
+            "maximum": 3.0,
+            "minimum": 1.0,
             "nullable": true,
             "example": 1
           },
@@ -41501,25 +41508,25 @@
             "example": [
               {
                 "ItemID": 3,
-                "Quantity": 5,
+                "Quantity": 5.0,
                 "TaxRate": 0.1,
-                "TaxAmount": 19,
+                "TaxAmount": 19.0,
                 "UnitID": 1,
-                "Discount": 10,
-                "CostPerUnit": 200,
-                "PricePerUnit": 190,
-                "Total": 950
+                "Discount": 10.0,
+                "CostPerUnit": 200.0,
+                "PricePerUnit": 190.0,
+                "Total": 950.0
               },
               {
                 "ItemID": 4,
-                "Quantity": 10,
+                "Quantity": 10.0,
                 "TaxRate": 0.1,
                 "TaxAmount": 14.5,
                 "UnitID": 1,
-                "Discount": 5,
-                "CostPerUnit": 150,
-                "PricePerUnit": 145,
-                "Total": 1450
+                "Discount": 5.0,
+                "CostPerUnit": 150.0,
+                "PricePerUnit": 145.0,
+                "Total": 1450.0
               }
             ],
             "items": {
@@ -41542,14 +41549,14 @@
           "ItemID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 100,
             "exclusiveMinimum": true
           },
           "Quantity": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 10,
             "exclusiveMinimum": true
           },
@@ -41557,13 +41564,13 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "TaxAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "UnitID": {
             "type": "integer",
@@ -41575,25 +41582,25 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 10
+            "example": 10.00
           },
           "CostPerUnit": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1
+            "minimum": 0.0,
+            "example": 1.0
           },
           "PricePerUnit": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1
+            "minimum": 0.0,
+            "example": 1.0
           },
           "Total": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1
+            "minimum": 0.0,
+            "example": 1.0
           }
         }
       },
@@ -41720,42 +41727,42 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "Discount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 10
+            "example": 10.00
           },
           "Total": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TaxAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "ShippingCost": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "CustomsDuty": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "HandlingCost": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "PaymentTerms": {
             "type": "string",
@@ -41928,29 +41935,29 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "TaxAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "Discount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 10
+            "example": 10.00
           },
           "CostPerUnit": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "PricePerUnit": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Condition": {
             "$ref": "#/components/schemas/ItemCondition"
@@ -41975,12 +41982,12 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "Total": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CreatedAt": {
             "type": "string",
@@ -42038,11 +42045,11 @@
           "SupplierID": 1,
           "WarehouseID": 1,
           "DeliveryDate": "2024-01-15T10:30:00+00:00",
-          "SubTotal": 1000,
-          "Discount": 50,
-          "Total": 1065,
-          "TaxAmount": 95,
-          "ShippingCost": 20,
+          "SubTotal": 1000.0,
+          "Discount": 50.0,
+          "Total": 1065.0,
+          "TaxAmount": 95.0,
+          "ShippingCost": 20.0,
           "CustomsDuty": null,
           "HandlingCost": null,
           "PaymentTerms": "Net 30",
@@ -42060,32 +42067,32 @@
             {
               "ItemID": 1,
               "UnitID": 1,
-              "Quantity": 10,
+              "Quantity": 10.0,
               "TaxRate": 0.1,
               "TaxAmount": 9.5,
-              "Discount": 5,
-              "CostPerUnit": 100,
-              "PricePerUnit": 95,
+              "Discount": 5.0,
+              "CostPerUnit": 100.0,
+              "PricePerUnit": 95.0,
               "Condition": 1,
               "ConditionReason": null,
               "ConditionAction": null,
               "QtyOrdered": null,
-              "Total": 950
+              "Total": 950.0
             },
             {
               "ItemID": 2,
               "UnitID": 1,
-              "Quantity": 10,
+              "Quantity": 10.0,
               "TaxRate": 0.1,
               "TaxAmount": 9.5,
-              "Discount": 5,
-              "CostPerUnit": 100,
-              "PricePerUnit": 95,
+              "Discount": 5.0,
+              "CostPerUnit": 100.0,
+              "PricePerUnit": 95.0,
               "Condition": 1,
               "ConditionReason": null,
               "ConditionAction": null,
               "QtyOrdered": null,
-              "Total": 950
+              "Total": 950.0
             }
           ]
         },
@@ -42126,7 +42133,7 @@
           "SupplierID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
@@ -42145,45 +42152,45 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1000
+            "example": 1000.0
           },
           "Discount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 50
+            "example": 50.0
           },
           "Total": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1065,
+            "minimum": 0.0,
+            "example": 1065.0,
             "exclusiveMinimum": true
           },
           "TaxAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 95
+            "example": 95.0
           },
           "ShippingCost": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
-            "example": 20
+            "example": 20.0
           },
           "CustomsDuty": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": null
           },
           "HandlingCost": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": null
           },
@@ -42212,8 +42219,8 @@
           "PaymentStatus": {
             "type": "integer",
             "format": "int32",
-            "maximum": 2,
-            "minimum": 1,
+            "maximum": 2.0,
+            "minimum": 1.0,
             "example": 1
           },
           "PaymentDate": {
@@ -42225,8 +42232,8 @@
           "PaymentMethod": {
             "type": "integer",
             "format": "int32",
-            "maximum": 3,
-            "minimum": 1,
+            "maximum": 3.0,
+            "minimum": 1.0,
             "nullable": true,
             "example": 1
           },
@@ -42259,32 +42266,32 @@
               {
                 "ItemID": 1,
                 "UnitID": 1,
-                "Quantity": 10,
+                "Quantity": 10.0,
                 "TaxRate": 0.1,
                 "TaxAmount": 9.5,
-                "Discount": 5,
-                "CostPerUnit": 100,
-                "PricePerUnit": 95,
+                "Discount": 5.0,
+                "CostPerUnit": 100.0,
+                "PricePerUnit": 95.0,
                 "Condition": 1,
                 "ConditionReason": null,
                 "ConditionAction": null,
                 "QtyOrdered": null,
-                "Total": 950
+                "Total": 950.0
               },
               {
                 "ItemID": 2,
                 "UnitID": 1,
-                "Quantity": 10,
+                "Quantity": 10.0,
                 "TaxRate": 0.1,
                 "TaxAmount": 9.5,
-                "Discount": 5,
-                "CostPerUnit": 100,
-                "PricePerUnit": 95,
+                "Discount": 5.0,
+                "CostPerUnit": 100.0,
+                "PricePerUnit": 95.0,
                 "Condition": 1,
                 "ConditionReason": null,
                 "ConditionAction": null,
                 "QtyOrdered": null,
-                "Total": 950
+                "Total": 950.0
               }
             ],
             "items": {
@@ -42308,7 +42315,7 @@
           "ItemID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 100,
             "exclusiveMinimum": true
           },
@@ -42321,7 +42328,7 @@
           "Quantity": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 10,
             "exclusiveMinimum": true
           },
@@ -42329,37 +42336,37 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "TaxAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "Discount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 10
+            "example": 10.00
           },
           "CostPerUnit": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1
+            "minimum": 0.0,
+            "example": 1.0
           },
           "PricePerUnit": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1
+            "minimum": 0.0,
+            "example": 1.0
           },
           "Condition": {
             "type": "integer",
             "format": "int32",
-            "maximum": 4,
-            "minimum": 1,
+            "maximum": 4.0,
+            "minimum": 1.0,
             "example": 1
           },
           "ConditionReason": {
@@ -42370,24 +42377,24 @@
           "ConditionAction": {
             "type": "integer",
             "format": "int32",
-            "maximum": 3,
-            "minimum": 1,
+            "maximum": 3.0,
+            "minimum": 1.0,
             "nullable": true,
             "example": 1
           },
           "QtyOrdered": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
-            "example": 1,
+            "example": 1.0,
             "exclusiveMinimum": true
           },
           "Total": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 1
+            "minimum": 0.0,
+            "example": 1.0
           }
         }
       },
@@ -42518,7 +42525,7 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "ExpectedDeliveryDate": {
             "type": "string",
@@ -42740,25 +42747,25 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "TransferredQuantity": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "ReceivedQuantity": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "DamagedReceivedQuantity": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "UnitID": {
             "type": "integer",
@@ -42812,7 +42819,7 @@
           "Details": [
             {
               "ItemID": 1,
-              "Quantity": 5,
+              "Quantity": 5.0,
               "UnitID": null,
               "Condition": 1,
               "DamagedQuantity": null,
@@ -42820,7 +42827,7 @@
             },
             {
               "ItemID": 2,
-              "Quantity": 3,
+              "Quantity": 3.0,
               "UnitID": null,
               "Condition": 1,
               "DamagedQuantity": null,
@@ -42838,14 +42845,14 @@
           "SourceWarehouseID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
           "DestinationWarehouseID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 2,
             "exclusiveMinimum": true
           },
@@ -42926,7 +42933,7 @@
             "example": [
               {
                 "ItemID": 1,
-                "Quantity": 5,
+                "Quantity": 5.0,
                 "UnitID": null,
                 "Condition": 1,
                 "DamagedQuantity": null,
@@ -42934,7 +42941,7 @@
               },
               {
                 "ItemID": 2,
-                "Quantity": 3,
+                "Quantity": 3.0,
                 "UnitID": null,
                 "Condition": 1,
                 "DamagedQuantity": null,
@@ -42958,14 +42965,14 @@
           "ItemID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 100,
             "exclusiveMinimum": true
           },
           "Quantity": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 10,
             "exclusiveMinimum": true
           },
@@ -42990,7 +42997,7 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "LineNotes": {
             "type": "string",
@@ -43017,7 +43024,7 @@
           "Details": [
             {
               "ItemID": 1,
-              "Quantity": 5,
+              "Quantity": 5.0,
               "UnitID": 1,
               "Condition": 1,
               "DamagedQuantity": null,
@@ -43025,7 +43032,7 @@
             },
             {
               "ItemID": 2,
-              "Quantity": 3,
+              "Quantity": 3.0,
               "UnitID": 2,
               "Condition": 1,
               "DamagedQuantity": null,
@@ -43125,7 +43132,7 @@
             "example": [
               {
                 "ItemID": 1,
-                "Quantity": 5,
+                "Quantity": 5.0,
                 "UnitID": 1,
                 "Condition": 1,
                 "DamagedQuantity": null,
@@ -43133,7 +43140,7 @@
               },
               {
                 "ItemID": 2,
-                "Quantity": 3,
+                "Quantity": 3.0,
                 "UnitID": 2,
                 "Condition": 1,
                 "DamagedQuantity": null,
@@ -43165,7 +43172,7 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "TrackingNumber": {
             "type": "string",
@@ -43495,8 +43502,8 @@
             "type": "integer",
             "description": "Optional expiration time in minutes for the SAS token.\nIf not specified, defaults to 60 minutes.\nMust be between 5 and 1440 minutes (24 hours).\nExample: 60, 120, 1440",
             "format": "int32",
-            "maximum": 1440,
-            "minimum": 5,
+            "maximum": 1440.0,
+            "minimum": 5.0,
             "nullable": true,
             "example": 60
           }
@@ -43620,8 +43627,8 @@
             "type": "integer",
             "description": "Optional custom expiration time in minutes.\nIf not specified, uses the default expiration from configuration.\nMinimum: 5 minutes, Maximum: 1440 minutes (24 hours)",
             "format": "int32",
-            "maximum": 1440,
-            "minimum": 5,
+            "maximum": 1440.0,
+            "minimum": 5.0,
             "nullable": true,
             "example": 60
           }
@@ -43637,9 +43644,9 @@
           "DiscountValueType": 1,
           "RequirementType": 2,
           "DiscountCode": "SUMMER15",
-          "PercentageValue": 15,
+          "PercentageValue": 15.0,
           "FixedAmountValue": null,
-          "MinimumPurchaseAmount": 150,
+          "MinimumPurchaseAmount": 150.0,
           "MinimumQuantity": null,
           "MaximumRedemptionCount": 1000,
           "MaximumUsesPerOrder": null,
@@ -43706,15 +43713,15 @@
           "PercentageValue": {
             "type": "number",
             "format": "decimal",
-            "maximum": 100,
+            "maximum": 100.0,
             "minimum": 0.01,
             "nullable": true,
-            "example": 15
+            "example": 15.0
           },
           "FixedAmountValue": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": null,
             "exclusiveMinimum": true
@@ -43722,15 +43729,15 @@
           "MinimumPurchaseAmount": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
-            "example": 150,
+            "example": 150.0,
             "exclusiveMinimum": true
           },
           "MinimumQuantity": {
             "type": "integer",
             "format": "int32",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": null,
             "exclusiveMinimum": true
@@ -43738,7 +43745,7 @@
           "MaximumRedemptionCount": {
             "type": "integer",
             "format": "int32",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": 1000,
             "exclusiveMinimum": true
@@ -43756,7 +43763,7 @@
           "BuyQuantity": {
             "type": "integer",
             "format": "int32",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": null,
             "exclusiveMinimum": true
@@ -43764,7 +43771,7 @@
           "GetQuantity": {
             "type": "integer",
             "format": "int32",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": null,
             "exclusiveMinimum": true
@@ -43772,14 +43779,14 @@
           "RewardItemID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": null,
             "exclusiveMinimum": true
           },
           "LocationIDs": {
             "type": "array",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": [],
             "exclusiveMinimum": true,
             "items": {
@@ -43977,7 +43984,7 @@
           "CityID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": 1,
             "exclusiveMinimum": true
@@ -43985,7 +43992,7 @@
           "CountryID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": 1,
             "exclusiveMinimum": true
@@ -43993,7 +44000,7 @@
           "LocationID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           }
@@ -44160,13 +44167,13 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "DiscountAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "IsInclusiveVAT": {
             "type": "boolean",
@@ -44176,7 +44183,7 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "TaxID": {
             "type": "integer",
@@ -44188,7 +44195,7 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "PropertiesJSON": {
             "type": "string",
@@ -44207,7 +44214,7 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "ReorderLevel": {
             "type": "integer",
@@ -44362,27 +44369,27 @@
             "type": "number",
             "description": "Financial information",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "ItemTaxTotal": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "GrandTotal": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "AmountPaidTotal": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "AmountDueTotal": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "PaymentStatus": {
             "type": "integer",
@@ -44499,12 +44506,12 @@
           "TotalBalanceDue": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "CurrentBalance": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalCustomers": {
             "type": "integer",
@@ -44559,12 +44566,12 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "DebtBalance": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "DueDate": {
             "type": "string",
@@ -44603,12 +44610,12 @@
           "OutstandingBalance": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "AvailableCredit": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "PaymentTerms": {
             "type": "integer",
@@ -44703,7 +44710,7 @@
           "Amount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "AllocatedTo": {
             "type": "string",
@@ -44762,22 +44769,22 @@
           "OpeningBalance": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalDebits": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "TotalCredits": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "ClosingBalance": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Transactions": {
             "type": "array",
@@ -44825,18 +44832,18 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "CreditAmount": {
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "Balance": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "InvoiceID": {
             "type": "integer",
@@ -44882,17 +44889,17 @@
           "TotalReceived": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "AmountUsedForPayments": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "AmountInExcess": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Message": {
             "type": "string",
@@ -44929,12 +44936,12 @@
           "AllocatedAmount": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "RemainingDue": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "PaymentStatus": {
             "type": "string",
@@ -44947,7 +44954,7 @@
         "example": {
           "CompanyClientID": 1,
           "PaymentDate": "2024-01-15T10:30:00+00:00",
-          "ReceivedAmount": 5000,
+          "ReceivedAmount": 5000.0,
           "IsFullAmountReceived": false,
           "PaymentModeID": 3,
           "TransactionReferenceNumber": "TXN-123456",
@@ -44959,18 +44966,18 @@
               "InvoiceNo": "INV-001",
               "InvoiceDate": null,
               "InvoiceAmount": null,
-              "AmountDue": 3000,
+              "AmountDue": 3000.0,
               "PaymentReceivedDate": "2024-01-15T10:30:00+00:00",
-              "ReceivedAmount": 3000
+              "ReceivedAmount": 3000.0
             },
             {
               "InvoiceID": 101,
               "InvoiceNo": "INV-002",
               "InvoiceDate": null,
               "InvoiceAmount": null,
-              "AmountDue": 2500,
+              "AmountDue": 2500.0,
               "PaymentReceivedDate": "2024-01-15T10:30:00+00:00",
-              "ReceivedAmount": 2000
+              "ReceivedAmount": 2000.0
             }
           ]
         },
@@ -44986,7 +44993,7 @@
           "CompanyClientID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
@@ -45001,8 +45008,8 @@
           "ReceivedAmount": {
             "type": "number",
             "format": "decimal",
-            "minimum": 0,
-            "example": 5000,
+            "minimum": 0.0,
+            "example": 5000.0,
             "exclusiveMinimum": true
           },
           "IsFullAmountReceived": {
@@ -45013,7 +45020,7 @@
           "PaymentModeID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 3,
             "exclusiveMinimum": true
           },
@@ -45041,18 +45048,18 @@
                 "InvoiceNo": "INV-001",
                 "InvoiceDate": null,
                 "InvoiceAmount": null,
-                "AmountDue": 3000,
+                "AmountDue": 3000.0,
                 "PaymentReceivedDate": "2024-01-15T10:30:00+00:00",
-                "ReceivedAmount": 3000
+                "ReceivedAmount": 3000.0
               },
               {
                 "InvoiceID": 101,
                 "InvoiceNo": "INV-002",
                 "InvoiceDate": null,
                 "InvoiceAmount": null,
-                "AmountDue": 2500,
+                "AmountDue": 2500.0,
                 "PaymentReceivedDate": "2024-01-15T10:30:00+00:00",
-                "ReceivedAmount": 2000
+                "ReceivedAmount": 2000.0
               }
             ],
             "items": {
@@ -45075,7 +45082,7 @@
             "type": "integer",
             "format": "int64",
             "default": 1,
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
@@ -45094,14 +45101,14 @@
             "type": "number",
             "format": "decimal",
             "nullable": true,
-            "example": 1
+            "example": 1.0
           },
           "AmountDue": {
             "type": "number",
             "format": "decimal",
-            "default": 100,
-            "minimum": 0,
-            "example": 1,
+            "default": 100.0,
+            "minimum": 0.0,
+            "example": 1.0,
             "exclusiveMinimum": true
           },
           "PaymentReceivedDate": {
@@ -45113,9 +45120,9 @@
           "ReceivedAmount": {
             "type": "number",
             "format": "decimal",
-            "default": 50,
-            "minimum": 0,
-            "example": 1,
+            "default": 50.0,
+            "minimum": 0.0,
+            "example": 1.0,
             "exclusiveMinimum": true
           }
         }
@@ -45183,7 +45190,7 @@
           "TaxPercentage": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Currency": {
             "type": "string",
@@ -45192,7 +45199,7 @@
           "ConversionRate": {
             "type": "number",
             "format": "decimal",
-            "example": 1
+            "example": 1.0
           },
           "Cities": {
             "type": "array",
@@ -45264,8 +45271,8 @@
           "ContactEmail": "ahmed.new@alkhaleej.sa",
           "IsCreditEnabled": true,
           "CreditStatus": 1,
-          "OpeningBalance": 5000,
-          "CreditLimit": 75000,
+          "OpeningBalance": 5000.00,
+          "CreditLimit": 75000.00,
           "PaymentTerms": 3,
           "PaymentTermsDays": 30,
           "CreditDueDate": "2024-12-31T23:59:59Z",
@@ -45352,7 +45359,7 @@
             "type": "integer",
             "description": "City where the company is located",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1,
             "exclusiveMinimum": true
           },
@@ -45475,16 +45482,16 @@
             "type": "number",
             "description": "Opening balance (default 0)",
             "format": "decimal",
-            "minimum": 0,
-            "example": 5000
+            "minimum": 0.0,
+            "example": 5000.00
           },
           "CreditLimit": {
             "type": "number",
             "description": "Maximum credit limit allowed",
             "format": "decimal",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
-            "example": 75000
+            "example": 75000.00
           },
           "PaymentTerms": {
             "type": "integer",
@@ -45502,8 +45509,8 @@
             "type": "integer",
             "description": "Standard payment terms in days",
             "format": "int32",
-            "maximum": 365,
-            "minimum": 0,
+            "maximum": 365.0,
+            "minimum": 0.0,
             "nullable": false,
             "example": 30,
             "exclusiveMinimum": true
@@ -45519,8 +45526,8 @@
             "type": "integer",
             "description": "Grace period in days before blocking new credit",
             "format": "int32",
-            "maximum": 90,
-            "minimum": 0,
+            "maximum": 90.0,
+            "minimum": 0.0,
             "nullable": true,
             "example": 7
           },
@@ -45816,7 +45823,7 @@
           "DisplayOrder": {
             "type": "integer",
             "format": "int32",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 1
           },
           "StatusID": {
@@ -45891,9 +45898,9 @@
           "Color": "Silver Metallic",
           "RegistrationNo": "ABC-1234",
           "RegistrationNoArabic": "أ ب ج ١٢٣٤",
-          "Odometer": 25000,
+          "Odometer": 25000.0,
           "FuelType": "Petrol",
-          "OilChangeIntervalKm": 10000,
+          "OilChangeIntervalKm": 10000.0,
           "ImagePath": "images/cars/camry-2024.jpg",
           "CarType": 1,
           "CarPlateType": 2
@@ -45922,7 +45929,7 @@
           "CustomerID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": 1,
             "exclusiveMinimum": true
@@ -45930,7 +45937,7 @@
           "MakeID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": 1,
             "exclusiveMinimum": true
@@ -45938,7 +45945,7 @@
           "ModelID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
             "example": 1,
             "exclusiveMinimum": true
@@ -45946,8 +45953,8 @@
           "Year": {
             "type": "integer",
             "format": "int32",
-            "maximum": 2027,
-            "minimum": 1970,
+            "maximum": 2027.0,
+            "minimum": 1970.0,
             "nullable": true,
             "example": 2024
           },
@@ -45976,9 +45983,9 @@
             "type": "number",
             "format": "decimal",
             "maximum": 999999.99,
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
-            "example": 25000,
+            "example": 25000.0,
             "exclusiveMinimum": true
           },
           "FuelType": {
@@ -45993,9 +46000,9 @@
             "type": "number",
             "format": "decimal",
             "maximum": 999999.99,
-            "minimum": 0,
+            "minimum": 0.0,
             "nullable": true,
-            "example": 10000
+            "example": 10000.0
           },
           "ImagePath": {
             "type": "string",
@@ -46393,7 +46400,7 @@
           "StatusID": {
             "type": "integer",
             "format": "int32",
-            "minimum": 0,
+            "minimum": 0.0,
             "minLength": 1,
             "nullable": false,
             "example": 1,
@@ -47045,7 +47052,7 @@
           "PaymentModeID": {
             "type": "integer",
             "format": "int64",
-            "minimum": 0,
+            "minimum": 0.0,
             "example": 2,
             "exclusiveMinimum": true
           },
@@ -47138,8 +47145,8 @@
         "type": "oauth2",
         "flows": {
           "authorizationCode": {
-            "authorizationUrl": "https://api-qa4.karage.co/oauth/authorize",
-            "tokenUrl": "https://api-qa4.karage.co/oauth/token",
+            "authorizationUrl": "https://api-qa1.karage.co/oauth/authorize",
+            "tokenUrl": "https://api-qa1.karage.co/oauth/token",
             "scopes": {
               "email": "Access to your email",
               "profile": "Access to your profile",
