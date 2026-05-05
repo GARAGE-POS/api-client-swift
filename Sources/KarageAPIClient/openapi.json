@@ -30491,7 +30491,8 @@
           "SessionOpenedAt",
           "ReportGeneratedAt",
           "TerminalName",
-          "LocationName"
+          "LocationName",
+          "CashierName"
         ],
         "properties": {
           "GrossSales": {
@@ -30574,6 +30575,10 @@
             "example": "example"
           },
           "LocationName": {
+            "type": "string",
+            "example": "example"
+          },
+           "CashierName": {
             "type": "string",
             "example": "example"
           }
@@ -36390,6 +36395,12 @@
           "TerminalName": {
             "type": "string",
             "description": "Terminal name.",
+            "nullable": true,
+            "example": "example"
+          },
+          "CashierName": {
+            "type": "string",
+            "description": "Name of the cashier.",
             "nullable": true,
             "example": "example"
           },
